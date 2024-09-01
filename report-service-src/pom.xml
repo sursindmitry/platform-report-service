@@ -21,7 +21,7 @@
         <!-- Platform API -->
         <dependency>
             <groupId>com.sursindmitry</groupId>
-            <artifactId>user-service-api</artifactId>
+            <artifactId>report-service-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
