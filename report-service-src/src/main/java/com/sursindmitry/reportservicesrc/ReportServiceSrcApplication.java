@@ -3,6 +3,9 @@ package com.sursindmitry.reportservicesrc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Main class.
+ */
 @SpringBootApplication
 public class ReportServiceSrcApplication {
 
