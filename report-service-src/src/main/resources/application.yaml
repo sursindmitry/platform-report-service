@@ -1,0 +1,26 @@
+server:
+  port: 9292
+
+spring:
+  application:
+    name: report-service
+
+management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: openapi, swagger-ui
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: info
+
+springdoc:
+  show-actuator: false
