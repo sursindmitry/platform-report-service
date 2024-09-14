@@ -5,6 +5,21 @@ spring:
   application:
     name: report-service
 
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  liquibase:
+    change-log: db/changelog/db.changelog.yaml
 management:
   tracing:
     enabled: true

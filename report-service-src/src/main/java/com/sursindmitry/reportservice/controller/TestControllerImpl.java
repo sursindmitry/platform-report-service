@@ -1,4 +1,4 @@
-package com.sursindmitry.reportservicesrc.controller;
+package com.sursindmitry.reportservice.controller;
 
 import com.sursindmitry.reportserviceapi.controller.TestController;
 import lombok.extern.slf4j.Slf4j;
