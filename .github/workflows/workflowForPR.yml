@@ -7,13 +7,17 @@ on:
       - bugfix/*
 
 jobs:
-  build-branch:
-    name: Build branch and run unit tests
+  build-common-models:
+    name: Build common-models and install to local repo
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+# Сборка common-models
+      - name: Checkout common-models repository
         uses: actions/checkout@v4.1.7
+        with:
+          repository: sursindmitry/platform-common-models
+          path: common-models
 
       - name: Set up Java
         uses: actions/setup-java@v4.2.2
@@ -21,7 +25,16 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Build and Test
-        working-directory: .
-        run: mvn clean install
+      - name: Build and Test common-models
+        working-directory: ./common-models
+        run: ./gradlew publishToMavenLocal
 
+# Сборка report-service
+      - name: Checkout report-service repository
+        uses: actions/checkout@v4.1.7
+        with:
+          path: report-service
+
+      - name: Build and Test report-service
+        working-directory: ./report-service
+        run: mvn clean install
