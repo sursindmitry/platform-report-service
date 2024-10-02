@@ -1,0 +1,9 @@
+users:
+  - id: "7194f8f8-3edf-4ce7-9499-2885c24c5c53"
+    user_id: "fcd264a5-9655-466c-a18e-43e2b19d19d3"
+    name: "Дмитрий"
+    last_name: "Сурсин"
+    email: "sursindmitryi@gmail.com"
+    is_archived: false
+    created: 2024-09-15 22:50:49.000000
+    updated: null
