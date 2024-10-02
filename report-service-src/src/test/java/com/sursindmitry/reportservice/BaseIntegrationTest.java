@@ -31,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureWebTestClient(timeout = "50000")
 @DBRider
 @DBUnit(caseSensitiveTableNames = true, schema = "public")
-public class BaseIntegrationTest {
+public abstract class BaseIntegrationTest {
 
     @Autowired
     protected WebTestClient webTestClient;
