@@ -8,7 +8,6 @@ import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.core.api.dataset.ExpectedDataSet;
 import com.sursindmitry.commonmodels.kafka.UserEvent;
 import com.sursindmitry.reportservice.BaseIntegrationTest;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ class UserCreateHandlerTest extends BaseIntegrationTest {
 
     @Test
     @DisplayName("Должен вернуть true, если status == CREATED")
-    @SneakyThrows
     void shouldReturnTrueWhenStatusIsCREATED() {
 
         UserEvent userEvent = jsonParserUtil.getObjectFromJson(
@@ -35,7 +33,6 @@ class UserCreateHandlerTest extends BaseIntegrationTest {
 
     @Test
     @DisplayName("Должен вернуть false, если status == DELETED")
-    @SneakyThrows
     void shouldReturnFalseWhenStatusIsDELETED() {
 
         UserEvent userEvent = jsonParserUtil.getObjectFromJson(
@@ -50,7 +47,6 @@ class UserCreateHandlerTest extends BaseIntegrationTest {
 
     @Test
     @DisplayName("Должен вернуть false, если status == UPDATED")
-    @SneakyThrows
     void shouldReturnFalseWhenStatusIsUPDATED() {
 
         UserEvent userEvent = jsonParserUtil.getObjectFromJson(
