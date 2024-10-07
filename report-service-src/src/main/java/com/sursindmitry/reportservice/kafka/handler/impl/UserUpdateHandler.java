@@ -42,7 +42,7 @@ public class UserUpdateHandler implements UserHandler<UserEvent> {
     @Override
     public void handle(UserEvent userEvent) {
 
-        User user = userService.findById(userEvent.userId());
+        User user = userService.findByUserId(userEvent.userId());
 
         User updatedUser = userMapper.toUpdateUser(user, userEvent);
 

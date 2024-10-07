@@ -12,7 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Сервис общения с {@link UserRepository}.
- * <p>Реализация интерфейса {@link UserService}</p>
+ *
+ * Реализация интерфейса {@link UserService}.
  */
 @Slf4j
 @Service
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     @Transactional
-    public User findById(UUID id) {
+    public User findByUserId(UUID id) {
         log.info("Поиск пользователя с id: {}", id);
         return userRepository.findByUserId(id)
             .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
