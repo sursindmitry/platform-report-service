@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
+ * Сервис общения с {@link UserRepository}.
+ *
  * Реализация интерфейса {@link UserService}.
  */
 @Slf4j
@@ -20,7 +22,8 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    /** Сохраняет в БД пользователя.
+    /**
+     * Сохраняет в БД пользователя.
      *
      * @param user пользователь которого нужно сохранить
      * @return {@link User}
@@ -44,5 +47,17 @@ public class UserServiceImpl implements UserService {
         log.info("Поиск пользователя с id: {}", id);
         return userRepository.findByUserId(id)
             .orElseThrow(() -> new NotFoundException("Пользователь не найден"));
+    }
+
+    /**
+     * Удаляет пользователя по id.
+     *
+     * @param id пользователя
+     */
+    @Override
+    @Transactional
+    public void deleteByUserId(UUID id) {
+        log.info("Удаление пользователя с id: {}", id);
+        userRepository.deleteByUserId(id);
     }
 }
