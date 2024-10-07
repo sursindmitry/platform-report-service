@@ -9,5 +9,7 @@ import java.util.UUID;
 public interface UserService {
     User save(User user);
 
-    User findByUserId(UUID id);
+    User findById(UUID id);
+
+    void deleteByUserId(UUID id);
 }
