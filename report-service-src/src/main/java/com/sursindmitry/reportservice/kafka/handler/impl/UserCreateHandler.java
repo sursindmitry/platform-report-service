@@ -7,12 +7,14 @@ import com.sursindmitry.reportservice.kafka.handler.UserHandler;
 import com.sursindmitry.reportservice.mapper.UserMapper;
 import com.sursindmitry.reportservice.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
  * Принимает евент UserEvent, проверяет, является ли статус евента {@link UserEventStatus#CREATED}
  * и сохраняет его в таблице users.
  */
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class UserCreateHandler implements UserHandler<UserEvent> {
@@ -28,6 +30,7 @@ public class UserCreateHandler implements UserHandler<UserEvent> {
      */
     @Override
     public boolean isHandle(UserEvent userEvent) {
+        log.debug("Проверка статуса у евента с id: {}", userEvent.id());
         return userEvent.status() == UserEventStatus.CREATED;
     }
 

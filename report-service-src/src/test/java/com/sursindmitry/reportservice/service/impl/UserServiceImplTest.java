@@ -2,7 +2,9 @@ package com.sursindmitry.reportservice.service.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -54,9 +56,11 @@ class UserServiceImplTest extends BaseUnitTest {
 
         when(userRepository.findByUserId(any(UUID.class))).thenReturn(Optional.ofNullable(user));
 
-        User findedUser = userService.findByUserId(userId);
+        User findedUser = userService.findById(userId);
 
         assertEquals(user, findedUser);
+
+        verify(userRepository, times(1)).findByUserId(any(UUID.class));
     }
 
     @Test
@@ -67,7 +71,21 @@ class UserServiceImplTest extends BaseUnitTest {
 
         when(userRepository.findByUserId(any(UUID.class))).thenReturn(Optional.empty());
 
-        assertThrows(NotFoundException.class, () -> userService.findByUserId(userId));
+        assertThrows(NotFoundException.class, () -> userService.findById(userId));
+
+        verify(userRepository, times(1)).findByUserId(any(UUID.class));
+
     }
 
+    @Test
+    @DisplayName("Должен удалить пользователя")
+    void shouldDeleteUser() {
+        UUID userId = UUID.randomUUID();
+
+        doNothing().when(userRepository).deleteByUserId(userId);
+
+        assertDoesNotThrow(() -> userService.deleteByUserId(userId));
+
+        verify(userRepository, times(1)).deleteByUserId(any(UUID.class));
+    }
 }
