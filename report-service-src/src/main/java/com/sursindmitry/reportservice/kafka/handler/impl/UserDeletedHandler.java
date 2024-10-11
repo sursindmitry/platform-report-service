@@ -39,7 +39,7 @@ public class UserDeletedHandler implements UserHandler<UserEvent> {
     @Override
     public void handle(UserEvent userEvent) {
 
-        userService.findById(userEvent.userId());
+        userService.findByUserId(userEvent.userId());
         userService.deleteByUserId(userEvent.userId());
     }
 }

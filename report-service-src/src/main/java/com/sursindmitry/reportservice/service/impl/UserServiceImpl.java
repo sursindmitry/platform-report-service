@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Сервис общения с {@link UserRepository}.
  *
- * Реализация интерфейса {@link UserService}.
+ * <p>
+ * Реализация интерфейса {@link UserService}
+ * </p>
  */
 @Slf4j
 @Service
