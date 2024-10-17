@@ -5,6 +5,20 @@ spring:
   application:
     name: report-service
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: report-group
+      auto-offset-reset: earliest
+      auto-commit-interval: 100ms
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    topic:
+      user-events: user-events
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
@@ -20,6 +34,7 @@ spring:
 
   liquibase:
     change-log: db/changelog/db.changelog.yaml
+
 management:
   tracing:
     enabled: true
@@ -35,7 +50,7 @@ management:
 
 logging:
   level:
-    root: debug
+    root: info
 
 springdoc:
   show-actuator: true

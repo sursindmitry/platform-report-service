@@ -11,7 +11,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 public class PostgresInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     @Container
-    public static final PostgreSQLContainer<?> CONTAINER = new PostgreSQLContainer<>("postgres:15.1")
+    public static final PostgreSQLContainer<?> CONTAINER = new PostgreSQLContainer<>("postgres:17")
         .withDatabaseName("test")
         .withPassword("test")
         .withPassword("test")

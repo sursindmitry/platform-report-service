@@ -56,7 +56,7 @@ class UserServiceImplTest extends BaseUnitTest {
 
         when(userRepository.findByUserId(any(UUID.class))).thenReturn(Optional.ofNullable(user));
 
-        User findedUser = userService.findById(userId);
+        User findedUser = userService.findByUserId(userId);
 
         assertEquals(user, findedUser);
 
@@ -71,7 +71,7 @@ class UserServiceImplTest extends BaseUnitTest {
 
         when(userRepository.findByUserId(any(UUID.class))).thenReturn(Optional.empty());
 
-        assertThrows(NotFoundException.class, () -> userService.findById(userId));
+        assertThrows(NotFoundException.class, () -> userService.findByUserId(userId));
 
         verify(userRepository, times(1)).findByUserId(any(UUID.class));
 
