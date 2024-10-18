@@ -19,6 +19,11 @@ spring:
     topic:
       user-events: user-events
 
+  data:
+    mongodb:
+      database: platform_files
+      uri: mongodb://root:root@localhost:27017
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
