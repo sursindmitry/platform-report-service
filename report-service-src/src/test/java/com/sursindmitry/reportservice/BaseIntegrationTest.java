@@ -4,6 +4,7 @@ import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.spring.api.DBRider;
 import com.sursindmitry.commonmodels.util.JsonParserUtil;
 import com.sursindmitry.reportservice.initializers.KafkaInitializer;
+import com.sursindmitry.reportservice.initializers.MongoInitializer;
 import com.sursindmitry.reportservice.initializers.PostgresInitializer;
 import com.sursindmitry.reportservice.service.TestProducerService;
 import org.junit.jupiter.api.TestInstance;
@@ -20,7 +21,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(propagation = Propagation.NOT_SUPPORTED)
-@ContextConfiguration(initializers = {PostgresInitializer.class, KafkaInitializer.class})
+@ContextConfiguration(initializers = {
+    PostgresInitializer.class,
+    KafkaInitializer.class,
+    MongoInitializer.class
+})
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
