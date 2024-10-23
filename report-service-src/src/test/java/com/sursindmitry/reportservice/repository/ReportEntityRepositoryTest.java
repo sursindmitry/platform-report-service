@@ -3,7 +3,7 @@ package com.sursindmitry.reportservice.repository;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.sursindmitry.reportservice.BaseIntegrationTest;
-import com.sursindmitry.reportservice.domain.entity.PdfDocument;
+import com.sursindmitry.reportservice.domain.entity.ReportEntity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import org.bson.types.Binary;
@@ -11,15 +11,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-class PdfDocumentRepositoryTest extends BaseIntegrationTest {
+class ReportEntityRepositoryTest extends BaseIntegrationTest {
 
     @Autowired
-    PdfDocumentRepository pdfDocumentRepository;
+    ReportEntityRepository reportEntityRepository;
 
     @DisplayName("Тест на сохранение и получение сущности PdfDocument")
     @Test
     void saveAndFindPdfDocument() {
-        PdfDocument pdfDocument = new PdfDocument(
+        ReportEntity reportEntity = new ReportEntity(
             UUID.randomUUID(),
             "Test title",
             ".pdf",
@@ -27,12 +27,12 @@ class PdfDocumentRepositoryTest extends BaseIntegrationTest {
             LocalDateTime.now()
         );
 
-        pdfDocumentRepository.save(pdfDocument);
+        reportEntityRepository.save(reportEntity);
 
-        PdfDocument foundPdf = pdfDocumentRepository.findById(pdfDocument.getId())
+        ReportEntity foundPdf = reportEntityRepository.findById(reportEntity.getId())
             .orElse(null);
 
-        assertThat(foundPdf).isEqualTo(pdfDocument);
+        assertThat(foundPdf).isEqualTo(reportEntity);
     }
 
 }
