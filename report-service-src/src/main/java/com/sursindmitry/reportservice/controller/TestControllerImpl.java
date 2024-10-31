@@ -13,7 +13,8 @@ public class TestControllerImpl implements TestController {
 
     @Override
     public String helloController() {
-        log.debug("Вызов метода helloController");
+        log.info("Вызов метода helloController info лог");
+        log.error("Вызов метода helloController error лог");
         return "Я работаю";
     }
 }
