@@ -19,9 +19,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "files")
 @AllArgsConstructor
 @NoArgsConstructor
-public class PdfDocument {
+public class ReportEntity {
 
-    @NotNull(message = "document id cannot be bull")
+    @NotNull(message = "document id cannot be null")
     private UUID id;
 
     private String title;
@@ -40,7 +40,7 @@ public class PdfDocument {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PdfDocument that = (PdfDocument) o;
+        ReportEntity that = (ReportEntity) o;
         return id != null && Objects.equals(id, that.id);
     }
 
