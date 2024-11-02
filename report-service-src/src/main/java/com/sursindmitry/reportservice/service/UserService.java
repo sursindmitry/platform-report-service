@@ -1,8 +1,8 @@
 package com.sursindmitry.reportservice.service;
 
 import com.sursindmitry.reportservice.domain.entity.User;
-import com.sursindmitry.reportserviceapi.dto.UserDto;
 import java.util.List;
+import com.sursindmitry.reportserviceapi.dto.UserDto;
 import java.util.UUID;
 
 /**
