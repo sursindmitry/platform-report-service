@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Swagger configuration.
+ *
  * <p>
  * Класс конфигурации свагера
  * </p>

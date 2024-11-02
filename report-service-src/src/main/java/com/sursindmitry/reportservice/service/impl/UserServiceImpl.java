@@ -4,6 +4,7 @@ import com.sursindmitry.reportservice.domain.entity.User;
 import com.sursindmitry.reportservice.exception.NotFoundException;
 import com.sursindmitry.reportservice.repository.UserRepository;
 import com.sursindmitry.reportservice.service.UserService;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -61,5 +62,15 @@ public class UserServiceImpl implements UserService {
     public void deleteByUserId(UUID id) {
         log.info("Удаление пользователя с id: {}", id);
         userRepository.deleteByUserId(id);
+    }
+
+    /**
+     * Ищет всех пользоватлей в БД.
+     *
+     * @return {@link List} пользовталей
+     */
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }

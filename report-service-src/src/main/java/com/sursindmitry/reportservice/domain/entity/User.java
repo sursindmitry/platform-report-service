@@ -67,4 +67,8 @@ public class User {
     public int hashCode() {
         return Objects.hash(id, email);
     }
+
+    public boolean getIsArchived() {
+        return isArchived;
+    }
 }

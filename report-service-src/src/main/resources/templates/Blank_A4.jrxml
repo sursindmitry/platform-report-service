@@ -1,0 +1,96 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Blank_A4_Landscape" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4366cba0-5243-4b85-aa28-3da22aca756d">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="ImagePath1" class="java.io.InputStream"/>
+	<query language="sql"><![CDATA[SELECT id, userId, name, lastName, email, isArchived, created, updated FROM users]]></query>
+	<field name="id" class="java.util.UUID"/>
+	<field name="userId" class="java.util.UUID"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="isArchived" class="java.lang.Boolean"/>
+	<field name="created" class="java.time.LocalDateTime"/>
+	<field name="updated" class="java.time.LocalDateTime"/>
+	<title height="56">
+		<element kind="textField" uuid="99150c5f-a164-4b0f-a420-9a38b1ecc208" x="0" y="0" width="802" height="56" fontName="DejaVu Sans" fontSize="33.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA["Привет мир"]]></expression>
+		</element>
+		<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+	</title>
+	<columnHeader height="60">
+		<element kind="staticText" uuid="f98460db-d2c7-4961-babb-29c23f940a28" x="10" y="35" width="100" height="20">
+			<text><![CDATA[Header]]></text>
+		</element>
+		<element kind="textField" uuid="91a83152-29d8-4e5b-8f87-99cf76212e93" x="10" y="10" width="80" height="20">
+			<expression><![CDATA["ID"]]></expression>
+		</element>
+		<element kind="textField" uuid="7b2d67e2-4bc2-4683-bbd8-86c2cb2f2c0e" x="90" y="10" width="80" height="20">
+			<expression><![CDATA["User ID"]]></expression>
+		</element>
+		<element kind="textField" uuid="d2ff4c8a-b3d1-4c7d-9475-1e92818fb43e" x="170" y="10" width="80" height="20">
+			<expression><![CDATA["Name"]]></expression>
+		</element>
+		<element kind="textField" uuid="24fa4f30-5128-4c96-815d-10c1159e3c15" x="250" y="10" width="80" height="20">
+			<expression><![CDATA["Last Name"]]></expression>
+		</element>
+		<element kind="textField" uuid="37f8cb3c-3f13-4c0d-a2e8-97d858a16f55" x="330" y="10" width="80" height="20">
+			<expression><![CDATA["Email"]]></expression>
+		</element>
+		<element kind="textField" uuid="3b8e53b8-9dc3-4811-8f8e-6e92c3fd54b7" x="410" y="10" width="80" height="20">
+			<expression><![CDATA["Archived"]]></expression>
+		</element>
+		<element kind="textField" uuid="db8f4032-68cf-4b0e-b5b4-b2c2e703d3f8" x="530" y="10" width="110" height="20">
+			<expression><![CDATA["Created"]]></expression>
+		</element>
+		<element kind="textField" uuid="f89c53a3-9377-4b5f-81e1-09b02f5cf890" x="680" y="10" width="99" height="20">
+			<expression><![CDATA["Updated"]]></expression>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="370">
+			<element kind="textField" uuid="64f4c8c1-c6bb-4972-9ffc-5dad54b8ebca" x="10" y="35" width="100" height="20">
+				<expression><![CDATA[$F{id}]]></expression>
+				<property name="com.jaspersoft.studio.element.name" value="Field"/>
+			</element>
+			<element kind="textField" uuid="bb9c92c8-8f65-4f42-97b1-32e18f56cbe9" x="10" y="10" width="80" height="20">
+				<expression><![CDATA[$F{id}]]></expression>
+			</element>
+			<element kind="textField" uuid="5b2fc28b-1d54-4a3c-8854-ef0e4ed71565" x="90" y="10" width="80" height="20">
+				<expression><![CDATA[$F{userId}]]></expression>
+			</element>
+			<element kind="textField" uuid="7215d69f-7a2b-4f0a-93ef-c62e15f15e7d" x="170" y="10" width="80" height="20" fontName="DejaVu Sans">
+				<expression><![CDATA[$F{name}]]></expression>
+			</element>
+			<element kind="textField" uuid="f512a8a4-bd0d-4c4b-93f5-2f8156a73cf2" x="250" y="10" width="80" height="20" fontName="DejaVu Sans">
+				<expression><![CDATA[$F{lastName}]]></expression>
+			</element>
+			<element kind="textField" uuid="aa28d7c5-3c51-489e-9f0f-6c2e4d4c1f4a" x="330" y="10" width="80" height="20">
+				<expression><![CDATA[$F{email}]]></expression>
+			</element>
+			<element kind="textField" uuid="eb7d5c9f-bf52-490d-8f69-f8124a96bf15" x="410" y="10" width="80" height="20">
+				<expression><![CDATA[$F{isArchived} ? "Yes" : "No"]]></expression>
+			</element>
+			<element kind="textField" uuid="7e3b1fc9-8341-453d-8f15-f2e25c4a91a4" x="530" y="10" width="110" height="20">
+				<expression><![CDATA[$F{created}.toString()]]></expression>
+			</element>
+			<element kind="textField" uuid="b5824d56-9a5c-49bf-8f15-f81a57e78c29" x="680" y="10" width="99" height="20">
+				<expression><![CDATA[$F{updated} == null ? "" : $F{updated}.toString()]]></expression>
+			</element>
+			<element kind="textField" uuid="123e4567-e89b-12d3-a456-426614174000" x="10" y="60" width="100" height="20">
+				<expression><![CDATA["DetailField"]]></expression>
+			</element>
+			<element kind="image" uuid="fcdb1781-7d8e-4670-a9c3-9bede2381617" x="510" y="35" width="200" height="148">
+				<expression><![CDATA[$P{ImagePath1}]]></expression>
+			</element>
+		</band>
+	</detail>
+</jasperReport>
