@@ -2,6 +2,7 @@ package com.sursindmitry.reportservice.mapper;
 
 import com.sursindmitry.commonmodels.kafka.UserEvent;
 import com.sursindmitry.reportservice.domain.entity.User;
+import com.sursindmitry.reportserviceapi.dto.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -31,4 +32,13 @@ public interface UserMapper {
     @Mapping(target = "created", ignore = true)
     @Mapping(target = "updated", expression = "java(java.time.LocalDateTime.now())")
     User toUpdateUser(@MappingTarget User user, UserEvent userEvent);
+
+    @Mapping(target = "id", source = "userId")
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "lastName", source = "lastName")
+    @Mapping(target = "email", source = "email")
+    @Mapping(target = "isArchived", source = "isArchived")
+    @Mapping(target = "created", source = "created")
+    @Mapping(target = "updated", source = "updated")
+    UserDto toUserDto(User user);
 }
