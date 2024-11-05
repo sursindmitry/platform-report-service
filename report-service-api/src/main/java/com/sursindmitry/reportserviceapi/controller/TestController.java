@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * TestController.
+ *
  * <p>
  * Контроллер для тестирования
  * </p>
