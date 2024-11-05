@@ -1,6 +1,7 @@
 package com.sursindmitry.reportservice.service;
 
 import com.sursindmitry.reportservice.domain.entity.User;
+import com.sursindmitry.reportserviceapi.dto.UserDto;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,6 +14,8 @@ public interface UserService {
     void deleteByUserId(UUID id);
 
     User findByUserId(UUID id);
+
+    UserDto findUserDtoByUserId(UUID id);
 
     List<User> findAll();
 }

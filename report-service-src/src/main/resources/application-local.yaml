@@ -19,10 +19,15 @@ spring:
     topic:
       user-events: user-events
 
+  cache:
+    type: redis
   data:
     mongodb:
       database: platform_files
       uri: mongodb://root:root@localhost:27017
+    redis:
+      host: localhost
+      port: 6379
 
   datasource:
     driver-class-name: org.postgresql.Driver
