@@ -2,11 +2,14 @@ server:
   port: 9292
 
 spring:
+  config:
+    import: optional:file:../.env[.properties]
+
   application:
     name: report-service
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${SERVER_HOST_KAFKA}:${SERVER_PORT_KAFKA}
     consumer:
       group-id: report-group
       auto-offset-reset: earliest
@@ -24,26 +27,28 @@ spring:
   data:
     mongodb:
       database: platform_files
-      uri: mongodb://root:root@localhost:27017
+      uri: mongodb://${SERVER_MONGO_USERNAME}:${SERVER_MONGO_PASSWORD}@${SERVER_HOST_MONGO}:${SERVER_PORT_MONGO}
     redis:
-      host: localhost
-      port: 6379
+      host: ${SERVER_HOST_REDIS}
+      port: ${SERVER_PORT_REDIS}
 
   datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
-        format_sql: false
+        format_sql: true
+    database: postgresql
 
   liquibase:
     change-log: db/changelog/db.changelog.yaml
+    enabled: true
 
 management:
   tracing:
