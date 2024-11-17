@@ -21,7 +21,7 @@
 	<field name="created" class="java.time.LocalDateTime"/>
 	<field name="updated" class="java.time.LocalDateTime"/>
 	<title height="56">
-		<element kind="textField" uuid="99150c5f-a164-4b0f-a420-9a38b1ecc208" x="0" y="0" width="802" height="56" fontName="DejaVu Sans" fontSize="33.0" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="99150c5f-a164-4b0f-a420-9a38b1ecc208" x="0" y="0" width="802" height="56" fontName="Times New Roman" fontSize="33.0" pdfFontName="" pdfEncoding="Identity-H" linkType="None" linkTarget="Self" pdfEmbedded="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA["Привет мир"]]></expression>
 		</element>
 		<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
@@ -57,10 +57,6 @@
 	</columnHeader>
 	<detail>
 		<band height="370">
-			<element kind="textField" uuid="64f4c8c1-c6bb-4972-9ffc-5dad54b8ebca" x="10" y="35" width="100" height="20">
-				<expression><![CDATA[$F{id}]]></expression>
-				<property name="com.jaspersoft.studio.element.name" value="Field"/>
-			</element>
 			<element kind="textField" uuid="bb9c92c8-8f65-4f42-97b1-32e18f56cbe9" x="10" y="10" width="80" height="20">
 				<expression><![CDATA[$F{id}]]></expression>
 			</element>
