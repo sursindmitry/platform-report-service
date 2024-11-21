@@ -2,14 +2,11 @@ server:
   port: 9292
 
 spring:
-  config:
-    import: optional:file:../.env[.properties]
-
   application:
     name: report-service
 
   kafka:
-    bootstrap-servers: ${SERVER_HOST_KAFKA}:${SERVER_PORT_KAFKA}
+    bootstrap-servers: ${SERVER_HOST_KAFKA:localhost}:${SERVER_PORT_KAFKA:9092}
     consumer:
       group-id: report-group
       auto-offset-reset: earliest
@@ -27,15 +24,15 @@ spring:
   data:
     mongodb:
       database: platform_files
-      uri: mongodb://${SERVER_MONGO_USERNAME}:${SERVER_MONGO_PASSWORD}@${SERVER_HOST_MONGO}:${SERVER_PORT_MONGO}
+      uri: mongodb://${SERVER_MONGO_USERNAME:root}:${SERVER_MONGO_PASSWORD:root}@${SERVER_HOST_MONGO:localhost}:${SERVER_PORT_MONGO:27017}
     redis:
-      host: ${SERVER_HOST_REDIS}
-      port: ${SERVER_PORT_REDIS}
+      host: ${SERVER_HOST_REDIS:localhost}
+      port: ${SERVER_PORT_REDIS:6379}
 
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USERNAME}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://${SERVER_POSTGRES_HOST:localhost}:${SERVER_POSTGRES_PORT:5432}/${SERVER_POSTGRES_DB:postgres}
+    username: ${SERVER_POSTGRES_USERNAME:postgres}
+    password: ${SERVER_POSTGRES_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
